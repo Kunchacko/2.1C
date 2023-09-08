@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue 3 Experiment</title>
+    <style>
+        /* Styles for the heading and paragraph */
+        h2 {
+            color: blue;
+        }
+
+        p {
+            font-style: italic;
+        }
+
+        /* Styles for the button */
+        button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Style for the list items */
+        ul li {
+            list-style-type: square;
+        }
+
+        /* Style for the input */
+        input[type="text"] {
+            width: 100%;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue 3 Experiment</title>
+</head>
+<body>
+    <div id="app">
+        <!-- Conditional Rendering -->
+        <h2 v-if="showHeading">Conditional Rendering</h2>
+        <p v-else>Heading is hidden</p>
+
+        <button @click="toggleHeading">Toggle Heading</button>
+
+        <!-- v-show -->
+        <p v-show="showParagraph">This paragraph is shown/hidden with v-show.</p>
+        
+        <!-- v-for -->
+        <ul>
+            <li v-for="item in items">{{ item }}</li>
+        </ul>
+
+        <!-- v-if with v-for -->
+        <ul>
+            <li v-for="person in people" v-if="person.age >= 18">{{ person.name }} ({{ person.age }} years old)</li>
+        </ul>
+
+        <!-- Form Input Handling -->
+        <input type="text" v-model="inputText">
+        <p>You typed: {{ inputText }}</p>
+    </div>
+
+    <!-- Vue 3 CDN -->
+    <script src="https://unpkg.com/vue@3.0.0/dist/vue.js"></script>
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    showHeading: true,
+                    showParagraph: true,
+                    items: ['Item 1', 'Item 2', 'Item 3'],
+                    people: [
+                        { name: 'Alice', age: 25 },
+                        { name: 'Bob', age: 17 },
+                        { name: 'Charlie', age: 30 }
+                    ],
+                    inputText: ''
+                };
+            },
+            methods: {
+                toggleHeading() {
+                    this.showHeading = !this.showHeading;
+                }
+            }
+        });
+
+        app.mount('#app');
+    </script>
+</body>
+</html>
+
